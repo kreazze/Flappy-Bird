@@ -3,7 +3,7 @@ Bird = Class{}
 local GRAVITY = 20
 
 function Bird:init()
-    self.image = love.graphics.newImage('bird.png')
+    self.image = love.graphics.newImage('graphics/bird.png')
     self.x = VIRTUAL_WIDTH / 2 - 8
     self.y = VIRTUAL_HEIGHT / 2 - 8
 
@@ -29,6 +29,16 @@ function Bird:collides(pipe)
     end
 
     return false
+end
+
+
+-- if the bottom of the bird sprite is not touching the ground
+function Bird:aboveGround()
+    if self.y + self.height > VIRTUAL_HEIGHT - 10 then
+        return false
+    else
+        return true
+    end
 end
 
 function Bird:update(dt)
