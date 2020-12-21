@@ -26,8 +26,6 @@ function PlayState:init()
     self.lastY = -PIPE_HEIGHT + math.random(80) + 20
 
     self.pipeInterval = math.random(2, 3) == 2 and 3 or 2
-
-    ScoreState:load()
 end
 
 function PlayState:update(dt)
